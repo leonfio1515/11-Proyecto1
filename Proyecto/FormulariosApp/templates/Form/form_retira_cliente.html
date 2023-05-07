@@ -1,0 +1,13 @@
+{% extends "form.html" %}
+
+
+{% block datos %}
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Aviso de retiro',
+        text: 'El siguiente se dio uso para notificar entre distintas sucursales que un cliente se presentaria a retirar una mercaderia ya pagada',
+        confirmButtonText: 'OK'
+    })
+</script>
+{% endblock %}

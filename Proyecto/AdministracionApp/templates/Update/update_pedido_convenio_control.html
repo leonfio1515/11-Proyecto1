@@ -1,0 +1,62 @@
+{% extends 'template_base.html' %}
+{% block content %}
+
+<div id="title-form">
+    <h2 class="fw-bolder">{{title}}</h2>
+</div>
+{% block subtitle %}
+{% endblock %}
+
+{% block datos %}
+<div id="cuadro-datos">
+    <h6>Ultimo registro</h6>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Fun |</th>
+                <th scope="col">Importe |</th>
+                <th scope="col">Cuotas |</th>
+                <th scope="col">Factura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="info-enco">
+                <td>{{ filtro.num_fun}}</td>
+                <td>{{ filtro.importe }}</td>
+                <td>{{ filtro.cuotas }}</td>
+                <td>{{ filtro.num_factura }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+        <div id="div-form">
+            <form id="Form-form" method="POST" onsubmit="return submitForm(this);">
+                {% csrf_token %}
+
+                <input type="hidden" name="action" value="{{ action }}">
+                {% for field in form.visible_fields %}
+
+            {% block conditional %}
+
+            {% endblock %}
+
+                <div class="form-group-control">
+                    <p>Cuadro de control </p>{{ field }}
+                </div>
+                <div class="form-floating mb-3"></div>
+                {% endfor %}
+
+
+                <!-- Submit Button-->
+                <div class="d-grid">
+                    <button class="button-confirm" id="submitButton" type="submit"><a>Guardar </a><i class="bi bi-upload"></i></button>
+                </div>
+            </form>
+        </div>
+
+
+{% endblock %}

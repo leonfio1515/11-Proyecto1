@@ -1,0 +1,36 @@
+{% extends 'form.html' %}
+
+{% block datos %}
+
+<div class="datos-update-form">
+    <table class="table list-body-retira">
+        <thead>
+            <tr id="tabla-titulo">
+                <th scope="col">Nombre</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Articulo</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="tabla-datos">
+            <tr id="tabla-datos">
+                <td>{{ filtro.nombre_fun }}</td>
+                <td>{{ filtro.cargo_fun }}</td>
+                <td>{{ filtro.articulo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+
+{% block conditional %}
+
+{% if field.label == "Fecha respuesta" %}
+<div class="form-group">
+    <div id="labelForm">{{field.label}}</div>
+</div>
+{% endif %}
+
+{% endblock %}

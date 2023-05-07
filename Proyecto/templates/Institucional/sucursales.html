@@ -1,0 +1,65 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block columns %}
+<tr>
+    <th style="display:none;" scope="col">Suc</th>
+    <th scope="col" style="width: 100px;">Nro Suc</th>
+    <th scope="col" style="width: 400px;">Direccion</th>
+    <th scope="col" style="width: 100px;">Departamento</th>
+    <th scope="col" style="width: 100px;">Zona</th>
+    <th scope="col" style="width: 200px;">Encargado</th>
+    <th scope="col" style="width: 200px;">Telefono</th>
+</tr>
+{% endblock %}
+
+
+{% block rows %}
+
+{% for suc in object_list %}
+<tr>
+    <td style="display:none;">{{n.numero_suc}}</td> <!------- Ordena segun fecha --------->
+    <td>{{suc.numero_suc}}</td>
+    <td>{{suc.direccion_suc}}</td>
+    <td>{{suc.departamento_suc}}</td>
+    <td>{{suc.zona_suc}}</td>
+    <td>{{suc.encargado_suc}}</td>
+    <td>{{suc.tel_suc}}</td>
+</tr>
+{% endfor %}
+
+{% endblock %}
+
+
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+
+
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        $('#tabla').DataTable({
+            "language": {
+                url: "{% static 'lib/DataTables/js/spanish.txt' %}"
+            },
+            responsive: true,
+            dom: 'Bfrtilp',
+            order: [[0, 'asc']],
+            buttons: [{
+                extend: 'excelHtml5',
+                text: '<i class="bi bi-file-earmark-excel"></i>',
+                titleAttr: 'Exportar a Excel',
+                className: 'btn btn-success',
+            }],
+        });
+    });
+</script>
+{% endblock %}

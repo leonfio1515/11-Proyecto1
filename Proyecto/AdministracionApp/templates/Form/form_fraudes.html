@@ -1,0 +1,16 @@
+{% extends "form.html" %}
+
+{% block datos %}
+
+{% endblock %}
+
+
+{% block conditional %}
+
+{% if field.label == "Fecha vta" or field.label == "Fecha Liq Descontado"  %}
+<div class="form-group">
+    <div id="labelForm">{{field.label}}</div>
+</div>
+{% endif %}
+
+{% endblock %}

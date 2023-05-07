@@ -1,0 +1,68 @@
+{% extends 'template_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row" title="comunicacion">
+    <h2 style="color: rgb(11, 4, 53)">{{ title_promo }}</h2>
+
+    <div class="card-container">
+
+        {% for p in promo %}
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#modal-promo-{{ p.id }}">
+        <div class="card-promo">
+            <img src="{{p.imagen_promo.url}}" alt="">
+            <h4>{{ p.medio_promo }}</h4>
+            <h5>{{ p.valor_promo }}</h5>
+            <hr>
+            <table class="promociones">
+                <tr>
+                    <th>Fecha Vto</th>
+                </tr>
+                <tr>
+                    <th class="th-card">{{ p.fecha_fin }}</th>
+                </tr>
+            </table>
+        </div>
+        </button>
+
+        
+        <div class="modales">
+            <div class="modal fade" id="modal-promo-{{ p.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header"> 
+                            <h1 class="modal-title-promo" id="exampleModalLabel">{{ p.medio_promo }} {{ p.valor_promo }} </h1>
+                            <button type="button" class="button-cancel" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </div>
+            
+                        <div class="modal-body-promo"> <!--CUERPO DEL MODAL-->
+                            <h3>{{ p.descripcion_promo }}</h3> <br>
+                            <h3><img src="{{ p.imagen_promo.url }}" alt="" width="150px" height="150px"></h3><br>
+                            <h4>Fecha fin: {{ p.fecha_fin }} </h4><br>
+                            <hr>
+                            <h3>CONDICIONES:</h3>
+                            <h4>{{ p.condiciones_promo }} </h4><br>
+                            <h4>{{ p.condiciones2_promo }}</h4>
+                        </div>   
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+
+
+    {% endblock %}
+
+
+{% block js %}  
+    <script src="{% static 'js/modal-general/promociones.js' %}"></script>
+
+{% endblock %}
+

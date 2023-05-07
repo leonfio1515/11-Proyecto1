@@ -1,0 +1,110 @@
+<nav class="nav-menu">
+    <ul class="">
+
+        <hr id="hr-menu">
+        <!----------------------Menu ADM Personal------------------------>
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#admpersonal"
+            data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i
+                class="bi bi-person-video2"></i><span>Adm Personal</span>
+
+            {% if admPersonal != 0 %}
+            <span id="notificacion">{{admPersonal}}</span>
+            {% endif %}
+        </a>
+
+        <div class="collapse" id="admpersonal">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="{% url 'pedido_compra_adm_personal_list' %}">Autorizacion de compra</a></li>
+            </ul>
+        </div>
+
+
+
+
+        <!----------------------Menu Cajas------------------------>
+
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#formularios"
+            data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i class="bi bi-ui-radios"></i>
+            <span>Cajas</span></a>
+
+        <div class="collapse" id="formularios">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+              
+                <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#registrocajas" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i
+                        class="bi bi-dot"></i><span>Registros</span></a>
+
+                <div class="collapse" id="registrocajas">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="{% url 'registro_errores_list' %}">Registro Errores</a></li>
+                        <li><a href="{% url 'manuales_list_adm' %}">Manuales - Registro</a></li>
+                        <li><a href="{% url 'comunicaciones_list_adm' %}">Comunicaciones - Registro</a></li>
+                    </ul>
+                </div>
+
+            </ul>
+        </div>
+
+        <!----------------------Menu Cajas------------------------>
+
+
+
+
+
+
+        <!----------------------Menu Financieras------------------------>
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#financieras"
+            data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i
+                class="bi bi-credit-card"></i><span>Financieras</span>
+
+            {% if financieras != 0 %}
+            <span id="notificacion">{{financieras}}</span>
+            {% endif %}
+        </a>
+
+        <div class="collapse" id="financieras">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+
+                <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#finanfin"
+                    data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i
+                        class="bi bi-dot"></i><span>Financieras</span></a>
+                <div class="collapse" id="finanfin">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="{% url 'fraudes_create' %}">Fraudes - Registro</a></li>
+                        <li><a href="{% url 'fraudes_list' %}">Fraudes - Listado</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+
+
+
+
+        <!--Menu Insumos-->
+
+
+        <!----------------------Menu Web------------------------>
+
+
+
+        <hr id="hr-menu">
+        <!--------------------REALIZAR PEDIDOS-------------------------------------->
+
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                       <li><a href="{% url 'pedido_compra_create' %}">Autoriza Compra</a></li>
+                    </ul>
+
+                <!-------------------PEDIDOS REALIZADOS--------------------------------------->
+
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="{% url 'pedido_compra_list' %}">Autoriza compra realizado</a></li>
+
+                    </ul>
+            </ul>
+        </div>
+        <!---------------------------------------------------------->
+
+    </ul>
+</nav><!-- .nav-menu -->

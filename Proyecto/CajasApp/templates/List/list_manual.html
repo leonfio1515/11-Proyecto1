@@ -1,0 +1,36 @@
+{% extends 'template_base.html' %}
+{% block content %}
+
+
+<h1 style="color: rgb(11, 4, 53)">{{ title }}</h1>
+
+<div class="card-container">
+
+  {% for manual in manuales %}
+  <div class="card-manuales">
+    <img src="../../../static/img/pdf.jpg" alt="">
+    <h4><strong>{{ manual.nombre_manual }}</strong></h4>
+    <p></p>
+    <button class="learn-more">
+      <span class="circle" aria-hidden="true">
+        <span class="icon arrow"></span>
+      </span>
+      <a href="{% url 'manual_detalle' manual.id %}"><span class="button-text">Ver manual</span></a>
+    </button>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+<script>
+  Swal.fire({
+    icon: 'warning',
+    title: 'Mensajes',
+    text: 'La siguiente seccion se muestran todos los manuales de procedimientos correspondientes al area',
+    confirmButtonText: 'OK'
+  })
+</script>
+
+{% endblock %}
+

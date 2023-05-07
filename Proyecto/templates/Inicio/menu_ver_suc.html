@@ -1,0 +1,90 @@
+<nav class="nav-menu navbar">
+    <ul class="">
+
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#cajas"
+            data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i
+                class="bi bi-folder-fill"></i><span>Documentacion</span></a>
+
+        <div class="collapse" id="cajas">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                <a href="{% url 'manuales_list' %}"><i class="bi bi-dot"></i>Manuales de precedimiento</a>
+
+                <!------------------------------------------------------------------->
+                <!------------------------------------------------------------------->
+            </ul>
+        </div>
+
+
+
+
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#formularios"
+            data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"><i class="bi bi-ui-radios"></i>
+            <span>Formularios</span></a>
+
+        <div class="collapse" id="formularios">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                <!---------------------------------------------------------->
+
+                <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#insumos"
+                    data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">
+                    <span><i class="bi bi-dot"></i>Pedido de materiales</span></a>
+                <div class="collapse" id="insumos">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                        <li><a href="{% url 'pedido_papeleria_create' %}">Insumos</a></li>
+
+                    </ul>
+                </div>
+                <!---------------------------------------------------------->
+
+
+            </ul>
+        </div>
+
+
+        <!---------------------------------------------------------->
+
+        <a href="{% url 'avisa_retiro_create' %}" class="nav-link scrollto"><i class="bi bi-bag-fill"></i>
+            <span>Aviso de retiro</span></a>
+
+
+
+        <hr id="hr-menu">
+
+        <!-------------------PEDIDOS REALIZADOS--------------------------------------->
+
+
+        <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse"
+            data-bs-target="#pedidos-realizados" aria-expanded="true" aria-haspopup="true"><i
+                class="bi bi-journal-arrow-down"></i> <span>Pedidos realizados</span></a>
+
+        <div class="collapse" id="pedidos-realizados">
+
+            <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#insumos"
+                data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">
+                <span><i class="bi bi-dot"></i>Insumos</span></a>
+            <div class="collapse" id="insumos">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                    <li><a href="{% url 'pedido_papeleria_list' %}">Insumos Papeleria</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+        <!----------------------PEDIDOS REALIZADOS------------------------------------>
+
+        <a href="{% url 'avisa_retiro_list' %}" class="nav-link scrollto"><i class="bi bi-cart-check-fill"></i>
+            <span>Confirma
+                Retiro</span></a>
+
+        <a href="{% url 'mensajes_list' %}" class="nav-link scrollto"><i class="bi bi-inboxes"></i> <span>Mensajes
+                enviados</span></a>
+
+           
+
+    </ul>
+</nav>
+<!-- .nav-menu -->

@@ -1,0 +1,39 @@
+{% load static %}
+<link href="{% static 'css/form-impresion.css' %}" rel="stylesheet">
+<link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+<div class="container" id="div-genera-impresion">
+    <br>
+    
+    <h4>Transaccion: <strong>{{avisaretiro.num_factura}}</strong></h4>
+    <h5>Fecha: {{avisaretiro.date_create}}</h5>
+    <h6>Sucursal: <strong>{{avisaretiro.usuario}}</strong></h6>
+    <hr>
+    <br>
+    <h6>Cedula: <strong>{{avisaretiro.ci_cliente}}</strong></h6>
+    <h6>Nombre: <strong>{{avisaretiro.nombre_cliente}}</strong></h6>
+
+    <h6>Articulo: <strong>{{avisaretiro.producto}}</strong></h6>
+
+    <br>
+    <h4>Sucursal donde retira: <strong>{{avisaretiro.suc_retirar}}</strong></h4>
+    <h4>Direccion donde retira: </h4>
+        <h4>{{avisaretiro.suc_retirar.direccion_suc}}</h4>
+
+    <br>
+
+    <hr>
+    <br>
+    <h5>Firma Encargado:_______________________</h5>
+    
+</div>
+
+<br>
+<div>
+    <center>
+        <button class="button-edit"><a href="{% url 'avisa_retiro_create' %}"><i class="bi bi-caret-left"></i> Regresar</a></button>
+                <button class="button-confirm" onclick="window.print()">Imprimir</button>
+    </center>
+</div>
+

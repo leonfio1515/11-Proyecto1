@@ -1,0 +1,74 @@
+<nav class="main-header navbar navbar-expand-md navbar-light navbar-white" id="mnavbar">
+    <div class="container">
+
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="nav-hz-iz collapse navbar-collapse order-3" id="nav-hz">
+
+            <!--Margen izquierdo-->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{% url 'inicio' %}" class="nav-link"><i class="bx bx-home"></i> Inicio</a>
+                </li>
+
+                {% for i in habilitaBoton %}
+                    {% if i.nombre == "Convenios" %}
+                        {% if i.boton == True %}
+                        <li class="nav-item">
+                            <a href="{% url 'saldo_convenio' %}" class="nav-link"><i class="bx bx-wallet"></i> Disponible
+                                Convenio</a>
+                        </li>
+                        {% else%}
+                        {% endif %}
+                    {% else %}
+                    {% endif %}
+                {% endfor%}
+
+            </ul>
+            <!--Margen izquierdo-->
+        </div>
+
+
+
+        <div class="nav-hz-dr collapse navbar-collapse order-3" id="nav-hz">
+
+            <!--Margen derecho-->
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{% url 'sucursales' %}" class="nav-link"><i class="bx bx-buildings"></i> Sucursales</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="bx bx-camera"></i> Campañas </a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a href="{% url 'admin:index' %}" class="nav-link"><i class="bx bx-cog"></i> Panel Admin </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+
+        <!------------------Margen Logout------------------------->
+        <div class="nav-hz-end collapse navbar-collapse order-3" id="nav-hz">
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        <i class="bx bx-power-off" aria-hidden="true" style="color: rgb(214, 200, 5)"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        </ul>
+    </div>
+    </div>
+</nav>

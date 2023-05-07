@@ -1,0 +1,90 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+
+{% block nuevoregistro %}
+<div class="nuevo-registro">
+    <button class="button-confirm btnAdd"><a type="button" ><i
+            class="bx bx-plus-circle"></i>Nuevo registro</a></button>
+</div>
+{% endblock %}
+
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha orden</th>
+    <th style="display:none;" scope="col">Fecha filtro</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col" width="100px">Fecha registro</th>
+    <th scope="col">Usuario</th>
+    <th scope="col">Sucursal</th>
+    <th scope="col">Fecha error</th>
+    <th scope="col">Num cajera</th>
+    <th scope="col">Num doc</th>
+    <th scope="col">Grupo</th>
+    <th scope="col">Comentario</th>
+    <th scope="col"></th>
+
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.fecha_error| date:"m/d/Y"}}</td> 
+    <td style="display:none;">{{n.id}}</td> 
+
+    <td>{{ n.date_create | date:"d/m/Y" }}</td>
+    <td>{{ n.usuario }}</td>
+    <td>{{ n.sucursal }}</td>
+    <td>{{ n.fecha_error | date:"d/m/Y" }}</td>
+    <td>{{ n.num_cajera }}</td>
+    <td>{{ n.num_boleta }}</td>
+    <td>{{ n.grupo }}</td>
+    {% if n.comentario is None %}
+    <td></td>
+    {% else %}
+    <td>{{ n.comentario }}</td>
+    {% endif %}
+
+
+    <td>
+    <button class="button-edit-list btnEdit"><a type="button"><i
+            class="bi bi-pencil"></i></a></button>
+    <button class="button-cancel-list btnDel"><a type="button"><i
+            class="bi bi-trash3"></i></a></button>
+    </td>
+
+</tr>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal/AdmCajas/list_errores_cajeras.js' %}"></script>
+
+
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Errores',
+        text: 'Registrar informacion referente al area',
+        confirmButtonText: 'OK'
+    })
+</script>
+
+{% endblock %}

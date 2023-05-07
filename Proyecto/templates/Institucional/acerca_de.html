@@ -1,0 +1,25 @@
+{% extends 'template_base.html' %}
+{% block content %}
+
+<div class="bubble">
+    <div class="row">
+
+        {% for d in funcionario %}
+        <div class="bubble-fun col-lg-4" id="carousel">
+            <div id="card-fun">
+                <img src="{{ d.img_fun.url }}" class="bd-placeholder-img rounded-circle" width="70" height="70">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>{{ d.nombre_fun }} {{d.apellido_fun}}</span></h4>
+                    <h5><span>{{ d.puesto_fun }}</span></h5>
+                    <p>{{ d.descripcion_fun }}</p>
+                    <p>{{ d.tel_fun }}</p>
+                    <p>{{ d.mail_fun }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

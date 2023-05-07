@@ -1,0 +1,340 @@
+.list-title {
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.list-subtitle {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.list-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgb(203, 221, 221, 0.8);
+}
+
+.card-body-list {
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#no-enviado {
+    color: orangered;
+}
+
+#enviado {
+    color: rgb(4, 99, 4);
+}
+
+#autorizada {
+    color: rgb(4, 99, 4);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#no-autorizada {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#colList {
+    font-size: 16px;
+    color: orangered;
+}
+
+#colList-suc {
+    font-size: 16px;
+    color: rgb(17, 0, 255);
+}
+
+#dataList {
+    font-size: 14px;
+}
+
+#autPendiente {
+    color: rgb(247, 98, 44);
+    font-size: 16px;
+}
+
+#autSi {
+    color: rgb(16, 129, 12);
+    font-size: 16px;
+}
+
+#autNo {
+    color: black;
+    font-size: 16px;
+}
+
+#notificacion {
+    background-color: yellow;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: black;
+    font-size: 10px;
+    margin-left: 8px;
+}
+
+
+#tabla_length {
+    float: left;
+    position: flex;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10px;
+    margin-left: 60px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(197, 235, 231, 0.6);
+}
+
+#tabla_filter {
+    float: right;
+    position: relative;
+    text-align: left;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-right: 60px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgba(197, 235, 231, 0.7);
+}
+
+
+#tabla_info {
+    float: right;
+    position: relative;
+    align-items: flex-end;
+    text-align: right;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(197, 235, 231, 0.6);
+}
+
+#tabla-datos {
+    font-size: 12px;
+    background-color: rgba(220, 228, 235, 0.5);
+}
+
+#tabla-datos-depo {
+    font-size: 12px;
+    background-color: rgba(220, 228, 235);
+}
+
+#tabla-titulo {
+    font-size: 14px;
+    background-color: rgba(197, 235, 231, 0.7);
+    vertical-align: middle;
+}
+
+#tabla_paginate {
+    float: right;
+    position: relative;
+    align-items: flex-end;
+    text-align: right;
+    flex-wrap: wrap;
+    margin-right: 60px;
+}
+
+
+.dt-buttons {
+    float: left;
+    position: relative;
+    text-align: left;
+    width: 50px;
+    margin-left: 100px;
+    margin-top: 30px;
+    box-sizing: content-box;
+}
+
+#title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#img-proceso {
+    width: 80%;
+    height: 90%;
+}
+
+#subtitle {
+    float: left;
+    height: 100px;
+    width: 700px;
+    margin-left: 300px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+#subtitle>span {
+    background-color: rgb(240, 248, 255, 0.7);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+#subtitle2 {
+    background-color: rgba(204, 227, 247, 0.7);
+    font-weight: bold;
+    border-radius: 25px;
+    font-size: 16px;
+    float: left;
+    height: 20%;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+
+#condiciones {
+    background-color: rgba(176, 214, 247, 0.5);
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    float: left;
+    border-radius: 25px;
+    margin-left: 20%;
+    height: 150px;
+    width: 33%;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+#condiciones2 {
+    background-color: rgba(236, 171, 87, 0.8);
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    border-radius: 25px;
+    height: 150px;
+    width: 33%;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+#tabla-suc {
+    margin-left: 15px;
+    width: auto;
+    border-radius: 25px;
+    padding: 0;
+}
+
+#boton-imagen {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    font-size: 12px;
+    width: 70px;
+    height: 70px;
+    size: 25px;
+}
+
+
+#autorizado {
+    color: rgb(4, 99, 4);
+    font-size: 16px;
+}
+
+#rechazado {
+    color: red;
+    font-size: 18px;
+}
+
+.list-body-retira {
+    font-size: 14px;
+    margin-bottom: 35px;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(203, 221, 221, 0.5);
+}
+
+#reparacion-resuelto{
+    width: 50px;
+    border-radius: 25px;
+    background-color: green;
+    color: white;
+}
+
+#reparacion-resuelto>p{
+    margin: 10px;
+}
+
+#reparacion-pendiente{
+    width: 50px;
+    border-radius: 25px;
+    background-color: rgb(224, 230, 234,0.7);
+    color: rgb(252, 59, 59);
+    font-size: 14px;
+}
+
+#reparacion-pendiente>p{
+    margin: 10px;
+}
+
+#link-video{    
+    width: 100px;
+    border-radius: 25px;
+    background-color: rgba(220, 192, 81, 0.7);
+    font-size: 14px;
+}
+
+
+#prioridad-baja{
+    padding-top: 5px;
+    margin: auto;
+    width: 70px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: rgb(137, 227, 137);
+    color: rgb(0, 0, 0);
+}
+
+#prioridad-media{
+    padding-top: 5px;
+    margin: auto;
+    width: 70px;
+    height: 30px;    
+    border-radius: 50px;
+    background-color: rgb(239, 218, 63);
+    color: rgb(0, 0, 0);
+}
+
+#prioridad-alta{
+    padding-top: 5px;
+    margin: auto;
+    width: 70px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: rgb(228, 61, 23);
+    color: rgb(0, 0, 0);
+}
+

@@ -1,0 +1,19 @@
+{% extends "form.html" %}
+
+{% block subtitle %}
+    <div class="subtitle-form">
+    <i class="bi bi-envelope-fill"></i>
+    <h6><u>Nos encanta escucharte</u></h6>
+    </div>
+{% endblock %}
+
+{% block datos %}
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Mensajes',
+        text: 'El siguiente modulo se dio uso para generar comunicacion desde las Sucursales de una empresa hacia la Administracion',
+        confirmButtonText: 'OK'
+    })
+</script>
+{% endblock %}

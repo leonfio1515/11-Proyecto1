@@ -1,0 +1,68 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha orden</th>
+    <th style="display:none;" scope="col">Fecha filtro</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col">Fecha Mensaje</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Asunto</th>
+    <th scope="col">Respuesta</th>
+    <th scope="col"></th>
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.date_create| date:"m/d/Y"}}</td> 
+    <td style="display:none;">{{n.id}}</td> 
+
+    <td>{{ n.date_create | date:"d/m/Y" }}</td>
+    <td>{{ n.nombre }}</td>
+    <td>{{ n.asunto }}</td>
+    {% if n.respuesta == Null %}
+    <td>Sin respuesta</td>
+    {% else %}
+    <td>Han respondido</td>
+    {% endif %}
+
+    <td><a id="boton-detail" type="button" class="btn btn-success" href="{% url 'mensajes_detail' n.id %}">Detalle <i
+                class="bi bi-list-nested"></i></a></td>
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal-general/datatable.js' %}"></script>
+
+
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Mensajes',
+        text: 'Aqui se visualizaran los mensajes enviados y podran consultar en "Detalle" una vez la administracion haya dado su respuesta',
+        confirmButtonText: 'OK'
+    })
+</script>
+
+
+{% endblock %}

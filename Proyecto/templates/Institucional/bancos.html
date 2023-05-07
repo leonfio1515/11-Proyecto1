@@ -1,0 +1,29 @@
+{% extends 'list.html' %}
+
+{{ title }}
+
+{% block columns %}
+<tr id="tabla-titulo">
+    <th scope="col"></th>
+    <th scope="col">Banco</th>
+    <th scope="col">Cuenta Pesos</th>
+    <th scope="col">Cuenta Dolares</th>
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+    <td><img src="{{ n.img.url }}" alt="" width="75px" height="50px"></td>
+    <td>{{ n.nombre_banco }}</td>
+    <td>{{ n.cuenta_pesos }}</td>
+    <td>{{ n.cuenta_dolares }}</td>
+</tr>
+{% endfor %}
+
+
+{% endblock %}

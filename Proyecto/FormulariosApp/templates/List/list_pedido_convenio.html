@@ -1,0 +1,61 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha orden</th>
+    <th style="display:none;" scope="col">Fecha filtro</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col">Fecha Pedido</th>
+    <th scope="col">Ci Fun</th>
+    <th scope="col">Nombre Fun</th>
+    <th scope="col">Importe</th>
+    <th scope="col">Cuotas</th>
+    <th scope="col">Num Factura</th>
+
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.date_create| date:"m/d/Y"}}</td> 
+    <td style="display:none;">{{n.id}}</td> 
+
+
+    <td>{{ n.date_create | date:"d/m/Y"}}</td>
+    <td>{{ n.ci_fun }}</td>
+    <td>{{ n.nombre_fun }}</td>
+    <td>{{ n.importe }}</td>
+    <td>{{ n.cuotas }}</td>
+
+    {% if n.num_factura is None %}
+    <td><a type="button" class="btn btn-primary" href="{% url 'pedido_compra_update' n.id %}"><i
+        class="bi bi-pencil"></i></a></td>
+    {% else %}
+    <td>{{ n.num_factura }}</td>
+    {% endif %}    
+</tr>
+
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal-general/datatable.js' %}"></script>
+
+{% endblock %}

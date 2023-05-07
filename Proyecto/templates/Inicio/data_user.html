@@ -1,0 +1,205 @@
+{% extends 'template_base.html' %}
+{% block content %}
+
+<div class="bubble">
+    <div class="row">
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Fondo Fijo Autorizado</span></h4>
+                    <h5>Caja 1: <p>{{ d.fondo_fijo1 }}</p></h5>
+                    <h5>Caja 2: <p>{{ d.fondo_fijo2 }}</p></h5>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Compra Agil</span></h4>
+                    <h5>Codigo: <p>{{ d.cod_retop }}</p></h5>
+                    <h5>Usuario: <p>{{ d.user_retop }}</h5>
+                    <h5>Contraseña: <p>{{ d.pass_retop }}</h5>
+
+                    {% if d.link_retop == None %}
+                    <td></td>
+                    {% else %}
+                    <h5>Link: <a href="{{ d.link_retop }}">LINK</a></h5>
+                    {% endif %}
+                    
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Pronto</span></h4>
+                    <h5>Codigo: <p>{{ d.cod_pronto }}</p></h5>
+                    <h5>Usuario: <p>{{ d.user_pronto }}</p></h5>
+                    <h5>Contraseña: <p>{{ d.pass_pronto }}</p></h5>
+
+                    {% if d.link_pronto == None %}
+                    <td></td>
+                    {% else %}
+                    <h5>Link: <a href="{{ d.link_pronto }}">LINK</a></h5>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Inforcheck</span></h4>
+                    <h5>Codigo: <p>{{ d.cod_inforcheck }}</p></h5>
+                    <h5>Sucursal: <p>{{ d.suc_inforcheck }}</p></h5>
+                    <h5>Clave: <p>{{ d.clave_inforcheck }}</p></h5>
+
+                    {% if d.link_inforcheck == None %}
+                    <td></td>
+                    {% else %}
+                    <h5>Link: <a href="{{ d.link_inforcheck }}">LINK</a></h5>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Taxfree</span></h4>
+                    <h5>Usuario: <p>{{ d.user_taxfree }}</p></h5>
+                    <h5>Contraseña: <p>{{ d.pass_taxfree }}</p></h5>
+
+                    {% if d.link_taxfree == None %}
+                    <td></td>
+                    {% else %}
+                    <h5>Link: <a href="{{ d.link_taxfree }}">LINK</a></h5>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <div id="card-fun">
+                <div id="card-funcionarios">
+                    <h4 class="fw-normal"><span>Itau Millas</span></h4>
+                    <h5>Usuario: <p>{{ d.user_itau }}</p></h5>
+                    <h5>Contraseña: <p>{{ d.pass_itau }}</p></h5>
+
+                    {% if d.link_itau == None %}
+                    <td></td>
+                    {% else %}
+                    <h5>Link: <a href="{{ d.link_itau }}">LINK</a></h5>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for d in filtro %}
+        <div class="bubble-data-suc col-lg-4" id="carousel">
+            <table class="table list-body" id="tabla-suc">
+                <thead>
+                    <tr id="colList-suc">
+                        <th scope="col">Financiera</th>
+                        <th scope="col">Codigo</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-datos">
+                    <tr id="dataList">
+                        <td>AMEX:</td>
+                        <td>{{d.cod_amex}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>ANDA:</td>
+                        <td>{{d.cod_anda}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>CABAL:</td>
+                        <td>{{d.cod_cabal}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>CLUB DEL ESTE:</td>
+                        <td>{{d.cod_club}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>CREDITEL:</td>
+                        <td>{{d.cod_creditel}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>CREDITOS DIRECTOS:</td>
+                        <td>{{d.cod_creditosD}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>DINERS:</td>
+                        <td>{{d.cod_diners}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>LIDER:</td>
+                        <td>{{d.cod_lider}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>MAESTRO:</td>
+                        <td>{{d.cod_maestro}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>MASTER:</td>
+                        <td>{{d.cod_master}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>LIDER SODEXO:</td>
+                        <td>{{d.cod_sodexo}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>OCA:</td>
+                        <td>{{d.cod_oca}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>PASS CARD:</td>
+                        <td>{{d.cod_passcard}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>VISA:</td>
+                        <td>{{d.cod_visa}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>TARJETA D:</td>
+                        <td>{{d.cod_tarjetad}}</td>
+                    </tr>
+                    <tr id="dataList">
+                        <td>EDENRED:</td>
+                        <td>{{d.cod_edenred}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+
+{% block nuevoregistro %}
+<div class="nuevo-registro">
+    <button class="button-confirm btnAdd"><a type="button" ><i
+            class="bx bx-plus-circle"></i>Nuevo registro</a></button>
+</div>
+{% endblock %}
+
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha</th>
+    <th style="display:none;" scope="col">Fecha</th>
+    <th style="display:none;" scope="col">ID</th>
+    <th style="display:none;" scope="col">Usuario</th>
+    <th style="display:none;" scope="col">Fecha carga</th>
+
+    <th scope="col">Nombre</th>
+    <th scope="col">Manual</th>
+    <th scope="col"></th>
+
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.date_create| date:"m/d/Y"}}</td> 
+
+    <td style="display:none;">{{n.id}}</td> 
+    <td style="display:none;">{{n.usuario}}</td> 
+    <td style="display:none;">{{n.date_create | date:"d/m/Y"}}</td> 
+
+    <td>{{ n.nombre_manual}}</td>
+    <td>{{ n.manual }}</td>
+
+    <td>
+    <button class="button-edit-list btnEdit"><a type="button"><i
+            class="bi bi-pencil"></i></a></button>
+    <button class="button-cancel-list btnDel"><a type="button"><i
+            class="bi bi-trash3"></i></a></button>
+    </td>
+
+</tr>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal/AdmCajas/list_manuales.js' %}"></script>
+
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Manuales de Procedimientos',
+        text: 'Administra la documentacion cargada referente a los Manuales de procedimiento',
+        confirmButtonText: 'OK'
+    })
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'template_base.html' %}
+{% block content %}
+
+<div id="cuadro-conv-res">
+    <br>
+    <h5>Num Funcionario: {{ num_fun }} </h6>
+        <h5>CI Funcionario: {{ ci }} </h5>
+        <h5>Nombre y Apellido: {{ nombre }} </h5>
+
+        <h5>Saldo actual: {{ disponible }} </h5>
+        <h5>Importe de compra: {{ importe_compra }} </h5>
+        <h5>Cuotas: {{ cuotas }} </h5>
+        <h5>Importe por cuota: {{ imp_cuota }} </h5>
+
+        <hr>
+        <h5 class="saldo-compra">Saldo luego de comprar: <p>{{ disponible_nuevo }}</p></h5>
+        {% if estado_autorizacion == "Autorizada" %}
+        <h5>Estado: <span id="autorizada">{{ estado_autorizacion }}</span></h5>
+        {% else %}
+        <h5>Estado: <span id="no-autorizada">{{ estado_autorizacion }}</span></h5>
+        <h5 id="no-autorizada">Saldo insuficiente o Inactivo</h5>
+
+        {% endif %}
+</div>
+
+<br>
+{% if estado_autorizacion == "Autorizada" %}
+<div class="button-convenio-div">
+<button class="button-warning"><a type="button" href="{% url 'pedido_compra_update' sol_creada.id %}">Cargar factura</a></button>
+</div>
+{% else %}
+<div>
+    <center>
+        <button class="button-edit"><a href="{% url 'pedido_compra_create' %}"><i class="bi bi-caret-left"></i> Regresar</a></button>
+    </center>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha orden</th>
+    <th style="display:none;" scope="col">Fecha filtro</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col">Fecha Compra</th>
+    <th scope="col">CI Cliente</th>
+    <th scope="col">Nombre Cliente</th>
+    <th scope="col">Num Doc</th>
+    <th scope="col">Articulo</th>
+    <th scope="col">Suc origen</th>
+    <th scope="col">Fecha de retiro</th>
+    <th scope="col"></th>
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.date_create| date:"m/d/Y"}}</td> 
+    <td style="display:none;">{{n.id}}</td> 
+
+    <td>{{ n.date_create | date:"d/m/Y"}}</td>
+    <td>{{ n.ci_cliente }}</td>
+    <td>{{ n.nombre_cliente }}</td>
+    <td>{{ n.num_factura }}</td>
+    <td>{{ n.producto }}</td>
+    <td>{{ n.usuario }}</td>
+
+    {% if n.fecha_retiro == None %}
+    <td id="no-enviado">No retirado</td>
+    {% else %}
+    <td id="enviado">{{ n.fecha_retiro | date:"d/m/Y"}}</td>
+    {% endif %}
+    
+    {% if n.fecha_retiro is none %}
+    <td><a id="boton-edit" type="button" class="btn btn-primary" href="{% url 'avisa_retiro_update' n.id %}">Editar <i
+                class="bi bi-pencil"></i></a></td>
+    {% else %}
+    <td></td>
+    {% endif %}
+
+</tr>
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal-general/datatable.js' %}"></script>
+
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Aviso de retiro',
+        text: 'Muestra las solicitudes recibidas desde otras sucursales',
+        confirmButtonText: 'OK'
+    })
+</script>
+
+{% endblock %}

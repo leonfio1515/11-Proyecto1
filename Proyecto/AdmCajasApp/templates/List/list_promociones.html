@@ -1,0 +1,79 @@
+{% extends 'list.html' %}
+{% load static %}
+{{ title }}
+
+
+{% block nuevoregistro %}
+<div class="nuevo-registro">
+    <button class="button-confirm btnAdd"><a type="button" ><i
+            class="bx bx-plus-circle"></i>Nuevo registro</a></button>
+</div>
+{% endblock %}
+
+
+{% block columns %}
+<tr id="tabla-titulo">
+
+    <th style="display:none;" scope="col">Fecha orden</th>
+    <th style="display:none;" scope="col">Fecha filtro</th>
+    <th style="display:none;" scope="col">ID</th>
+
+    <th scope="col">Nombre</th>
+    <th scope="col">Valor</th>
+    <th scope="col">Descripcion</th>
+    <th scope="col">Fecha inicio</th>
+    <th scope="col">Fecha Fin</th>
+    <th scope="col">Alcance</th>
+    <th scope="col"></th>
+
+</tr>
+{% endblock %}
+
+
+
+{% block rows %}
+
+{% for n in filtro %}
+
+<tr id="tabla-datos">
+
+    <td style="display:none;">{{n.date_create| date:"Y/m/d"}}</td> 
+    <td style="display:none;">{{n.fecha_fin| date:"m/d/Y"}}</td> 
+    <td style="display:none;">{{n.id}}</td> 
+
+    <td>{{ n.medio_promo}}</td>
+    <td>{{ n.valor_promo }}</td>
+    <td>{{ n.descripcion_promo }}</td>
+    <td>{{ n.fecha_inicio | date:"d/m/Y" }}</td>
+    <td>{{ n.fecha_fin | date:"d/m/Y" }}</td>
+    <td>{{ n.alcance_promo }}</td>
+
+    <td>
+    <button class="button-cancel-list btnDel"><a type="button"><i
+            class="bi bi-trash3"></i></a></button>
+    </td>
+
+</tr>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+{% block js %}
+
+<script src="{% static 'lib/jquery-confirm/jquery-confirm.min.js' %}"></script>
+<script src="{% static 'js/modal/AdmCajas/list_promociones.js' %}"></script>
+
+<script>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Comunicaciones',
+        text: 'Administra la informacion que se mostrara en los card de inicio',
+        confirmButtonText: 'OK'
+    })
+</script>
+
+{% endblock %}

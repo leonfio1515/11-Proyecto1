@@ -1,0 +1,155 @@
+{% extends 'template_base.html' %}
+
+{% block content %}
+
+<div id="detail-title">
+    {{title }}
+</div>
+
+<br>
+<div id="container-detail">
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Fecha del pedido:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            <strong>{{pedidopapeleria.date_create | date:"d/m/Y"}}</strong>
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Lapiceras:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Lapiceras == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Lapiceras}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+
+    </div>
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Clips:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Clips == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Clips}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Lapiz:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Lapiz == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Lapiz}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Grapas:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Grapas == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Grapas}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">ResmaA4:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.ResmaA4 == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.ResmaA4}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Sobre carta:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Sobre_carta == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Sobre_carta}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Tijera:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Tijera == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Tijera}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Banda elastica:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Banda_elastica == None %}
+            <strong></strong>
+            {% else %}
+            <strong>{{pedidopapeleria.Banda_elastica}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+
+
+
+    <div class="row">
+        <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Fecha enviado:</li>
+        </div>
+        <div class="col" id="dato-detalle">
+            {% if pedidopapeleria.Fecha_enviado == None %}
+            <strong id="no-enviado">Aun no se ha enviado</strong>
+            {% else %}
+            <strong id="enviado">{{pedidopapeleria.Fecha_enviado | date:"d/m/Y"}}</strong>
+            {% endif %}
+        </div>
+        <hr id="hr-detalle">
+    </div>
+</div>
+<br>
+<button class="button-edit"><a id="boton" href="{% url 'pedido_papeleria_list' %}"><i class="bi bi-caret-left"></i>
+    Regresar</a></button>
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div style="width: 20%; margin: auto;">
+
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-primary" >Iniciar Sesion</button>
+            </div>
+        </form>
+
+{% endblock %}

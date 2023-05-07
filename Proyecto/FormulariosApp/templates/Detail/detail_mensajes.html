@@ -1,0 +1,63 @@
+{% extends 'template_base.html' %}
+
+{% block content %}
+
+<div id="detail-title">
+    {{title }}
+</div>
+
+
+<br>
+<div id="container-detail">
+ 
+        <div class="row">
+            <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Fecha creado:</li></div>
+            <div class="col" id="dato-detalle">
+            <strong>{{mensajes.date_create | date:"d/m/Y"}}</strong></div>
+            <hr>
+        </div>
+
+        <div class="row">    
+            <div class="col" id="titulo-detalle">   
+            <li class="card-text text-start">Nombre:</li></div>
+            <div class="col" id="dato-detalle">
+            <strong>{{mensajes.nombre}}</strong></div>
+            <hr>
+        </div>
+
+        <div class="row">    
+            <div class="col" id="titulo-detalle">   
+            <li class="card-text text-start">Asunto:</li></div>
+            <div class="col" id="dato-detalle">
+            <strong>{{mensajes.asunto}}</strong></div>
+            <hr>          
+        </div>
+
+        <div class="row">
+            <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Mensaje:</li></div>
+            <div class="col" id="dato-detalle">
+            <strong>{{mensajes.mensaje}}</strong></div>
+            <hr> 
+        </div>
+
+        <div class="row">
+            <div class="col" id="titulo-detalle">
+            <li class="card-text text-start">Respuesta:</li></div>
+            <div class="col" id="dato-detalle">
+                {% if mensajes.respuesta == None %}
+                <strong id="no-enviado">Sin respuesta aun</strong>
+                {% else %}
+                <strong id="enviado">{{mensajes.respuesta}}</strong>
+                {% endif %}
+                </div>
+                <hr>
+        </div>
+
+
+        <br>
+        <button class="button-edit"> <a href="{% url 'mensajes_list' %}"><i class="bi bi-caret-left"></i></i> Regresar</a></button>
+</div>
+
+{% endblock %}

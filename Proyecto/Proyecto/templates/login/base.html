@@ -1,0 +1,301 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block body %}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Leonardo Fiorentino">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Intranet</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/pdf.css' %}">
+    <link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dropdowns/">    
+
+    <link href="{% static 'css/list.css' %}" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/headers.css' %}" rel="stylesheet">
+    <link href="{% static 'css/form-validation.css' %}" rel="stylesheet">
+    
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+<div class="container">
+<a class="navbar-brand" style="font-size:150%; font-size: 200%; font-family: Georgia, 'Times New Roman', Times, serif;" href="{% url 'inicio' %}">CYBE</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarsExample05">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+
+
+<!---------------------------VISTA ADMIN----------------------------------------------->
+<!------------------------------------------------------------------------------------->
+
+{% if user.is_staff %}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Cajas</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'registro_errores_create' %}">Registro Errores</a></li>
+        <li><a class="dropdown-item" href="{% url 'registro_quebrantos_create' %}">Registro Quebrantos</a></li>
+        
+        <li><a class="dropdown-item" href="{% url 'registro_retop_create' %}">Registro Retop</a></li>
+        <li><a class="dropdown-item" href="{% url 'registro_promotora_create' %}">Registro Promotora</a></li>
+        <li><a class="dropdown-item" href="{% url 'registro_creditosD_create' %}">Registro CreditosD</a></li>
+        <hr class="dropdown-divider"></hr>
+        <li><a class="dropdown-item" href="{% url 'vale_apmu_adm_list' %}">Listado APMU</a></li>
+        
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Convenios</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'cobranzas_convenios_finan_list' %}">Cobranzas Convenios</a></li>
+    </ul>
+</li>
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Proveedores</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="#">Registro Errores</a></li>
+    </ul>
+</li>
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Web</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'cancelaciones_create' %}">Cargar Cancelaciones</a></li>
+        <li><a class="dropdown-item" href="{% url 'cancelaciones_list' %}">Cancelaciones Cargadas</a></li>
+        <li><a class="dropdown-item" href="{% url 'ventas_rut_create' %}">Ventas con RUT</a></li>
+        <hr class="dropdown-divider"></hr>
+        <li><a class="dropdown-item" href="{% url 'ventas_rut_list' %}">Ventas con RUT - Lista</a></li>
+        <li><a class="dropdown-item" href="{% url 'ventas_rut_pendientes_list' %}">Ventas con RUT - Facturacion</a></li>
+        
+    </ul>
+</li>
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Financieras</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'cancelaciones_pendientes_finan_list' %}">Cancelaciones Financieras</a></li>
+        <li><a class="dropdown-item" href="{% url 'cancelaciones_pendientes_list' %}">Cancelaciones Facturacion</a></li>
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown"
+    aria-expanded="false">Deposito</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'encomiendas_depo_create' %}">Encomiendas</a></li>
+    </ul>
+</li>
+
+        <li class="nav-item dropdown">
+            <a class="btn btn-toggle dropdown-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#sesion"
+                data-toggle="dropdown" aria-expanded="true" aria-haspopup="true"
+                style="color: rgb(246, 250, 32);"><span>{{request.session.group.name }}</span></a>
+            <div class="collapse" id="sesion">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+        
+                    {% for sesion in request.user.groups.all %}
+                    {% if sesion.id != request.session.group.id %}
+                    <li><a href="{% url 'sesion_group' sesion.id %}">{{sesion.name}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+        
+                </ul>
+            </div>
+        </li>
+
+
+<!---------------------------FIN VISTA ADMIN----------------------------------------------->
+<!----------------------------------------------------------------------------------------->
+
+
+
+
+
+
+{% elif user.is_authenticated %}
+<!---------------------------------OK------------------------------------------------------>
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+</li>
+<!---------------------------------OK------------------------------------------------------>
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'noticias_list' %}">Noticias</a>
+</li>
+
+
+<!---------------------------VISTA LOCALES------------------------------------------------->
+<!---------------------------Formularios--------------------------------------------------->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Pedidos Formularios</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        
+        <li><a class="dropdown-item" href="{% url 'pedido_bolsas_create' %}">Insumos Bolsas</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_diseno_create' %}">Insumos Diseño</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_farmacia_create' %}">Insumos Farmacia</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_limpieza_create' %}">Insumos Limpieza</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_luces_create' %}">Insumos Luces</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_papeleria_create' %}">Insumos Papeleria</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_precios_create' %}">Insumos Precios</a></li>
+        <li><a class="dropdown-item" href="{% url 'pedido_reparaciones_create' %}">Reparaciones</a></li>
+
+    <hr class="dropdown-divider"></hr>
+    <li><a class="dropdown-item" href="{% url 'cheque_uniforme_create' %}">Cheque Uniforme</a></li>
+    <hr class="dropdown-divider">
+    
+    <li><a class="dropdown-item" href="{% url 'pedido_cambio_create' %}">Pedido de Cambio</a></li>
+    <hr class="dropdown-divider">
+    <li><a class="dropdown-item" href="{% url 'pedido_uniforme_create' %}">Pedido de Uniforme</a></li>
+    <hr class="dropdown-divider">
+    <li><a class="dropdown-item" href="{% url 'vale_conrad_create' %}">Vale Conrad</a></li>
+    <li><a class="dropdown-item" href="{% url 'vale_apmu_create' %}">Vale Apmu</a></li>
+    
+</ul>
+</li>
+
+<!------------------------------Cajas------------------------------------------------------->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Cajas</a>
+    <ul class="dropdown-menu" aria-labelledby="dropdown05">
+        <li><a class="dropdown-item" href="{% url 'manuales_list' %}">Manuales</a></li>
+        <li><a class="dropdown-item" href="{% url 'calcula_descuento' %}">Calcula Descuento</a></li>
+        <li><a class="dropdown-item" href="{% url 'cotiza_orden' %}">Cotiza Orden</a></li>
+        <li><a class="dropdown-item" href="{% url 'orden_sin_cotizar' %}">Orden sin cotizar</a></li>
+        <li><a class="dropdown-item" href="{% url 'calcula_disponible' %}">Calcula disponible - Orden</a></li>
+        
+        
+    </ul>
+</li>
+
+<!------------------------------Doc para imprimir-------------------------------------->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Doc impresion</a>
+    <ol class="dropdown-menu" aria-labelledby="dropdown05">
+       <li><a class="dropdown-item" href="{% url 'diferencia_caja' %}">Dif de Caja</a></li>
+        <li><a class="dropdown-item" href="{% url 'mercaderia_senada' %}">Mercaderia Señada</a></li>
+        <li><a class="dropdown-item" href="{% url 'reclamo_manual' %}">Reclamo Manual</a></li>
+        <li><a class="dropdown-item" href="{% url 'reclamos_print' %}">Reclamos</a></li>
+        <li><a class="dropdown-item" href="{% url 'reserva_mercaderia' %}">Reserva de Mercaderia</a></li>
+        <li><a class="dropdown-item" href="{% url 'retira_vendedor' %}">Retira Vendedor</a></li>
+        <li><a class="dropdown-item" href="{% url 'solicitud_credito' %}">Solicitud de Credito</a></li>
+        <li><a class="dropdown-item" href="{% url 'venta_paga' %}">Venta paga a Retirar</a></li>
+       
+        
+    </ol>
+    
+    <!---------------------------------OK------------------------------------------------------>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'retira_cliente_create' %}">Retira Cliente</a>
+    </li>
+    
+    
+    <!-------------------------------------------------------------------->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Sugerencias</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown05">
+            <li><a class="dropdown-item" href="{% url 'mensaje_create' %}">Enviar Mensaje</a></li>
+        </ul>
+    </li>
+    <!-------------------------------------------------------------------->
+    <!---------------------------------OK------------------------------------------------------>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'encomiendas_recibidas_suc_list' %}">Encomiendas</a>
+    </li>
+
+    <!---------------------------VISTA LOCALES---------------------------------->
+
+    {% endif %}
+
+</ul>
+</div>
+
+
+<!------------Menu Usuario----------------------->
+<div class="dropdown text-end">
+    
+    
+    {% if user.is_staff %}
+    <a href="#" class="d-block link-dark text-light dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img class="rounded-circle" style="color:white">Hola, <strong style="color: orangered">{{user}}
+        </strong></a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <hr class="dropdown-divider"></hr>
+            <li><a class="dropdown-item" href="{% url 'admin:index' %}">Panel Admin</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a></li>
+        </ul>
+
+{% elif user.is_authenticated %}
+<a href="#" class="d-block link-dark text-light dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    <img class="rounded-circle" style="color:white">Hola, <strong style="color: orangered">{{user}}
+    </strong></a>
+<ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+<li><a class="dropdown-item" href="{% url 'pedidos_lista' %}">Pedidos realizados</a></li>
+<li><a class="dropdown-item" href="#">Vale Creditel (Proximamente)</a></li>
+<li><a class="dropdown-item" href="#">Vale Credito de la casa (Proximamente)</a></li>
+<li><a class="dropdown-item" href="#">Vale Correo (Proximamente)</a></li>
+<li><a class="dropdown-item" href="{% url 'retira_cliente_list' %}">Retira cliente a Confirmar</a></li>
+<li><a class="dropdown-item" href="{% url 'mensajes_list' %}">Mensajes enviados</a></li>
+<hr class="dropdown-divider"></hr>
+<li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesion</a></li>
+
+</ul>
+{% endif %}
+
+
+
+</div>
+
+</div>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script> 
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+{% block javascript %}
+
+{% endblock %}
+
+
+</body>
+</html>
+
+{% endblock %}
